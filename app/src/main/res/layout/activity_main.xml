@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.wear.widget.BoxInsetLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg">
+
+    <!-- Box only left/right: a scrolling column should use the full height of the round screen. -->
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        app:layout_boxedEdges="left|right">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/round_scroll_pad"
+            android:paddingBottom="@dimen/round_scroll_pad">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:textColor="@color/accent"
+                android:textSize="@dimen/text_title"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:gravity="center"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/text_small" />
+
+            <Button
+                android:id="@+id/btnFocus"
+                style="@style/BioFocus.Button.Primary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/btn_focus_start" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/label_session_len"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/text_small" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnLenMinus"
+                    style="@style/BioFocus.Stepper"
+                    android:layout_width="@dimen/stepper_btn"
+                    android:layout_height="@dimen/stepper_btn"
+                    android:text="@string/minus" />
+
+                <TextView
+                    android:id="@+id/tvLen"
+                    android:layout_width="72dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/text_body" />
+
+                <Button
+                    android:id="@+id/btnLenPlus"
+                    style="@style/BioFocus.Stepper"
+                    android:layout_width="@dimen/stepper_btn"
+                    android:layout_height="@dimen/stepper_btn"
+                    android:text="@string/plus" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnTracking"
+                style="@style/BioFocus.Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="@string/btn_tracking_on" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center"
+                android:text="@string/label_active_hours"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/text_small" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnStartMinus"
+                    style="@style/BioFocus.Stepper"
+                    android:layout_width="@dimen/stepper_btn"
+                    android:layout_height="@dimen/stepper_btn"
+                    android:text="@string/minus" />
+
+                <TextView
+                    android:id="@+id/tvStart"
+                    android:layout_width="72dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/text_body" />
+
+                <Button
+                    android:id="@+id/btnStartPlus"
+                    style="@style/BioFocus.Stepper"
+                    android:layout_width="@dimen/stepper_btn"
+                    android:layout_height="@dimen/stepper_btn"
+                    android:text="@string/plus" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnEndMinus"
+                    style="@style/BioFocus.Stepper"
+                    android:layout_width="@dimen/stepper_btn"
+                    android:layout_height="@dimen/stepper_btn"
+                    android:text="@string/minus" />
+
+                <TextView
+                    android:id="@+id/tvEnd"
+                    android:layout_width="72dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/text_body" />
+
+                <Button
+                    android:id="@+id/btnEndPlus"
+                    style="@style/BioFocus.Stepper"
+                    android:layout_width="@dimen/stepper_btn"
+                    android:layout_height="@dimen/stepper_btn"
+                    android:text="@string/plus" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnSensors"
+                style="@style/BioFocus.Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="@string/btn_sensors" />
+
+            <Button
+                android:id="@+id/btnTest"
+                style="@style/BioFocus.Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="@string/btn_test" />
+        </LinearLayout>
+    </ScrollView>
+</androidx.wear.widget.BoxInsetLayout>

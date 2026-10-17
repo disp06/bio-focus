@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Extra vertical padding so the first/last rows of a scrolling list clear the round bezel. -->
+    <dimen name="round_scroll_pad">36dp</dimen>
+    <dimen name="side_pad">14dp</dimen>
+    <dimen name="text_title">18sp</dimen>
+    <dimen name="text_body">14sp</dimen>
+    <dimen name="text_small">12sp</dimen>
+    <dimen name="text_timer">44sp</dimen>
+    <dimen name="stepper_btn">40dp</dimen>
+</resources>

@@ -1,0 +1,64 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'com.biofocus.wear'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId 'com.biofocus.wear'
+        // TicWatch Pro 3 GPS on Wear OS 2.x = Android 9 (API 28).
+        minSdk 28
+        // Deliberately 28: matches the watch, keeps the API-28 permission/background model
+        // (no POST_NOTIFICATIONS, no foregroundServiceType). Sideload-only, not for Play.
+        targetSdk 28
+        versionCode 1
+        versionName '0.1.0'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            // Sideload convenience: sign release with the debug key. Replace for real distribution.
+            signingConfig signingConfigs.debug
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    lint {
+        // targetSdk 28 is intentional (see above).
+        disable 'ExpiredTargetSdkVersion', 'OldTargetApi'
+        abortOnError false
+        checkReleaseBuilds false
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+}
+
+kotlin {
+    compilerOptions {
+        jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17
+    }
+}
+
+dependencies {
+    implementation 'androidx.core:core-ktx:1.13.1'
+    // FragmentActivity is required by AmbientModeSupport.
+    implementation 'androidx.fragment:fragment-ktx:1.8.5'
+    // BoxInsetLayout, WearableRecyclerView, AmbientModeSupport (classic View-based Wear UI, no Compose).
+    implementation 'androidx.wear:wear:1.2.0'
+    implementation 'androidx.recyclerview:recyclerview:1.3.2'
+    // Ambient mode talks to the on-device Wear shared library at runtime.
+    compileOnly 'com.google.android.wearable:wearable:2.9.0'
+
+    testImplementation 'junit:junit:4.13.2'
+}

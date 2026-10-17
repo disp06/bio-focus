@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Bio-Focus</string>
+
+    <!-- Notification channels -->
+    <string name="ch_tracking">Background tracking</string>
+    <string name="ch_sedentary">Sedentary alerts</string>
+    <string name="ch_stress">Stress alerts</string>
+    <string name="ch_fatigue">Fatigue alerts</string>
+    <string name="ch_session">Focus sessions</string>
+
+    <!-- Interventions (wording from the brief) -->
+    <string name="alert_sedentary">You\'ve been sitting too long. Stand up and stretch!</string>
+    <string name="alert_stress">Stress detected. Breathe with me for 1 minute.</string>
+    <string name="alert_fatigue">Focus dropping. Stand up or drink water!</string>
+    <string name="session_done">Focus session complete: %1$d min. Nice work.</string>
+
+    <string name="action_snooze">Snooze 30 min</string>
+    <string name="action_done">Done</string>
+    <string name="action_dismiss">Not now</string>
+    <string name="action_breathe">Breathe</string>
+
+    <!-- Status -->
+    <string name="status_tracking">Tracking movement</string>
+    <string name="status_moved">Last moved %1$d min ago</string>
+    <string name="status_session">Focus · %1$d min left</string>
+    <string name="status_off">Tracking is off</string>
+
+    <string name="problem_permission">Body-sensor permission needed for focus sessions</string>
+    <string name="problem_no_hr">This watch exposes no heart-rate sensor</string>
+    <string name="problem_no_steps">No step counter on this watch</string>
+
+    <!-- Main screen -->
+    <string name="btn_tracking_on">Start tracking</string>
+    <string name="btn_tracking_off">Stop tracking</string>
+    <string name="btn_focus_start">Start focus</string>
+    <string name="btn_focus_open">Open focus session</string>
+    <string name="label_session_len">Session length</string>
+    <string name="label_minutes">%1$d min</string>
+    <string name="label_active_hours">Active hours (sedentary alerts)</string>
+    <string name="label_from">From</string>
+    <string name="label_to">To</string>
+    <string name="btn_sensors">Sensors on this watch</string>
+    <string name="btn_test">Test the 3 alerts</string>
+    <string name="minus">−</string>
+    <string name="plus">+</string>
+
+    <!-- Focus screen -->
+    <string name="focus_calibrating">Learning your baseline…</string>
+    <string name="focus_stress">Stress %1$d</string>
+    <string name="focus_mode_beat">HRV (beat-to-beat)</string>
+    <string name="focus_mode_proxy">HR-based estimate</string>
+    <string name="focus_moving">Moving — paused</string>
+    <string name="focus_done">Session complete</string>
+    <string name="btn_stop">Stop</string>
+    <string name="btn_close">Close</string>
+    <string name="hr_value">%1$d bpm</string>
+    <string name="hr_none">— bpm</string>
+
+    <!-- Breathing -->
+    <string name="breathe_in">Breathe in</string>
+    <string name="breathe_out">Breathe out</string>
+    <string name="breathe_done">Well done</string>
+    <string name="seconds_left">%1$d s</string>
+
+    <!-- Sensors screen -->
+    <string name="sensors_summary">HR %1$s · Beat-to-beat %2$s · SpO2 %3$s · Steps %4$s</string>
+</resources>
