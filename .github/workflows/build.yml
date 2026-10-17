@@ -2,7 +2,11 @@ name: Build APK
 
 on:
   push:
+    branches: [main]
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   build:
@@ -27,6 +31,18 @@ jobs:
         with:
           name: bio-focus-debug-apk
           path: app/build/outputs/apk/debug/app-debug.apk
+
+      # Also publish the APK on an orphan `apk` branch so it can be fetched with plain git.
+      - name: Publish APK to apk branch
+        run: |
+          mkdir /tmp/apkbranch && cp app/build/outputs/apk/debug/app-debug.apk /tmp/apkbranch/bio-focus-debug.apk
+          cd /tmp/apkbranch
+          git init -q -b apk
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add bio-focus-debug.apk
+          git commit -q -m "APK from ${GITHUB_SHA::7}"
+          git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git" apk
 
       - uses: actions/upload-artifact@v4
         if: failure()
