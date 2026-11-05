@@ -87,6 +87,14 @@ class MainActivity : FragmentActivity() {
         if (!hasBodySensors()) permissionLauncher.launch(Manifest.permission.BODY_SENSORS)
         // Keep the service alive across app restarts if tracking was on.
         if (prefs.trackingEnabled) BioTrackingService.send(this, BioTrackingService.ACTION_START_TRACKING)
+
+        DemoMode.handle(this, intent) // debug builds only: screenshots / demos
+    }
+
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        setIntent(intent)
+        DemoMode.handle(this, intent)
     }
 
     override fun onResume() {
